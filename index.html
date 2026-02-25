@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Camino a España: Ana Archila | We Study World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root {
+    --german-black: #1A1A1A;
+    --absolute-black: #000000;
+    --spain-red: #AA151B;
+    --spain-red-light: rgba(170, 21, 27, 0.05);
+    --accent-gold: #F1BF00;
+    --bg-light: #F8F9FA;
+    --card-bg: #FFFFFF;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #EAEAEA;
+    --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-hover: 0 20px 40px rgba(0,0,0,0.12);
+    --wsw-green: #009A44;
+    
+    /* Variables UX Full-Bleed Layout */
+    --content-max: 1100px;
+    --space-side: max(40px, calc((100% - var(--content-max)) / 2));
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  
+  body { background: var(--bg-light); color: var(--text-main); font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4 { font-weight: 700; }
+  
+  .container { width: 100%; max-width: 100%; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
+
+  /* --- HEADER & LOGO --- */
+  .logo-section { background: var(--absolute-black); padding: 30px var(--space-side); display: flex; justify-content: space-between; align-items: center; } 
+  .wsw-logo-code { 
+    color: #FFFFFF; 
+    font-family: 'Outfit', sans-serif; 
+    font-weight: 900; 
+    font-size: 32px; 
+    line-height: 0.85; 
+    letter-spacing: -1.5px; 
+    text-transform: uppercase; 
+    cursor: default;
+  }
+
+  /* --- HERO --- */
+  .header { 
+    background-color: #1a1a1a;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 100%), url('https://images.unsplash.com/photo-1543783207-ec64e4d95325?q=80&w=1920&auto=format&fit=crop'); 
+    background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; 
+    color: white; padding: 80px var(--space-side) 110px; text-align: left; position: relative; border-bottom: 6px solid var(--spain-red); 
+  }
+  .hero-tag { display: inline-block; color: var(--accent-gold); font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+  .header h1 { font-family: 'Outfit', sans-serif; font-size: 60px; font-weight: 900; margin-bottom: 30px; letter-spacing: -1.5px; line-height: 1; }
+  .header h1 span { color: var(--accent-gold); }
+  .hero-capsules { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .capsule { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); padding: 8px 18px; border-radius: 50px; font-size: 14px; font-weight: 500; color: white; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  
+  /* --- PERFIL ESTUDIANTE --- */
+  .student-card { background: white; margin: -40px var(--space-side) 40px; padding: 30px; border-radius: 12px; box-shadow: var(--shadow-lg); position: relative; z-index: 10; border-top: 4px solid var(--german-black); }
+  .student-card h2 { color: var(--german-black); font-size: 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .student-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+  .student-item .label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
+  .student-item .value { font-size: 15px; font-weight: 500; color: var(--german-black); }
+
+  .section-title { font-size: 28px; font-weight: 900; color: var(--german-black); margin-bottom: 30px; padding: 0 var(--space-side); letter-spacing: -0.5px; }
+
+  /* --- GRID OPCIONES --- */
+  .higher-ed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 var(--space-side) 10px; }
+  .he-card { background: white; border-radius: 16px; padding: 30px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); position: relative; display: flex; flex-direction: column; transition: all 0.3s ease; }
+  .he-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-5px); border-color: var(--accent-gold); }
+  .he-badge { position: absolute; top: -15px; right: 20px; background: var(--accent-gold); color: var(--german-black); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 900; z-index: 10; box-shadow: 0 4px 10px rgba(241, 191, 0, 0.3); }
+  .he-title { font-size: 20px; font-weight: 900; color: var(--german-black); margin-bottom: 5px; line-height: 1.2; }
+  .he-college { font-size: 16px; font-weight: 700; color: var(--spain-red); margin-bottom: 15px; }
+  .he-tags { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .he-tag { background: var(--bg-light); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; color: var(--text-main); }
+  .he-finance { background: var(--spain-red-light); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(170, 21, 27, 0.1); }
+  .he-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+  .he-btn { display: block; text-align: center; background: var(--german-black); color: white; padding: 14px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: 0.3s; margin-top: auto; }
+  .he-btn:hover { background: var(--spain-red); }
+
+  /* --- JOURNEY --- */
+  .journey-section { padding: 40px var(--space-side) 20px; }
+  .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
+  .journey-card { background: white; border-radius: 16px; padding: 30px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); transition: 0.3s; }
+  .journey-icon { font-size: 35px; margin-bottom: 15px; color: var(--spain-red); }
+  .journey-card h3 { font-size: 22px; margin-bottom: 20px; border-bottom: 2px solid var(--bg-light); padding-bottom: 10px; }
+  .journey-list { list-style: none; }
+  .journey-list li { margin-bottom: 12px; font-size: 15px; color: var(--text-muted); display: flex; gap: 10px; align-items: flex-start; }
+  .journey-list li i { color: var(--wsw-green); margin-top: 4px; font-size: 14px; }
+
+  /* --- CAMPUS --- */
+  .campus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 var(--space-side) 50px; }
+  .campus-card { background: white; border: 1px solid var(--border-color); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; transition: 0.3s; }
+  .map-wrapper { width: 100%; height: 220px; border-bottom: 1px solid var(--border-color); background: #eee; }
+  .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+  .campus-info { padding: 25px; }
+  .campus-info h3 { font-size: 20px; margin-bottom: 5px; }
+  .campus-tag { font-size: 13px; font-weight: 700; color: var(--spain-red); text-transform: uppercase; margin-bottom: 15px; display: block; }
+  .campus-list { list-style: none; }
+  .campus-list li { display: flex; gap: 12px; font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+  .campus-list li i { color: var(--accent-gold); }
+
+  /* --- HACK --- */
+  .hack-box { background: linear-gradient(to right, #AA151B, #f1bf00); border-radius: 16px; padding: 40px; color: white; margin: 0 var(--space-side) 50px; display: flex; align-items: center; gap: 25px; box-shadow: var(--shadow-lg); }
+  .hack-icon { font-size: 50px; color: white; }
+  .hack-content h3 { font-size: 22px; margin-bottom: 8px; }
+
+  /* --- MIGRATORIO --- */
+  .migratory-section { padding: 0 var(--space-side) 50px; }
+  .solvency-box { background: #E6F5EC; border: 1px solid var(--wsw-green); border-radius: 12px; padding: 30px; text-align: center; }
+  .solvency-box > strong { font-size: 36px; color: var(--wsw-green); display: block; margin: 10px 0; }
+
+  /* --- SECCIÓN GRADIENTE ANIMADO --- */
+  .animated-gradient-section { 
+    position: relative; width: 100%; min-height: 400px; 
+    background: linear-gradient(-45deg, #F1BF00, #AA151B, #E3000F, #FFCC00);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    display: flex; align-items: center; justify-content: center; text-align: center; 
+    padding: 60px var(--space-side); margin: 0 0 50px 0; 
+  }
+  
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .gradient-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); z-index: 1; }
+  .parallax-content { position: relative; z-index: 2; color: white; padding: 0 20px; }
+  .parallax-content h2 { font-family: 'Outfit', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 20px; line-height: 1; color: white; letter-spacing: -1.5px; text-transform: uppercase; text-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+  .parallax-content h2 span { color: white; text-decoration: underline; text-decoration-color: var(--absolute-black); }
+  .parallax-content p { font-size: 20px; max-width: 700px; margin: 0 auto; color: white; font-weight: 500; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+
+  /* --- CHECKLIST --- */
+  .checklist-container { background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; margin: 0 var(--space-side) 50px; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 15px; padding: 15px 0; border-bottom: 1px solid var(--border-color); }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-item input[type="checkbox"] { width: 22px; height: 22px; cursor: pointer; flex-shrink: 0; accent-color: var(--wsw-green); }
+
+  /* --- AI TOOLKIT --- */
+  .ai-section { 
+    background: var(--german-black);
+    background-image: linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(58,58,58,0.92) 100%), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80'); 
+    background-size: cover; background-position: center; color: white; border-radius: 16px; padding: 45px; margin: 0 var(--space-side) 60px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; 
+  }
+  .ai-section::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gold); }
+  .ai-section h3 { color: var(--accent-gold); font-size: 26px; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; font-family: 'Outfit', sans-serif; }
+  .ai-buttons { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 25px; }
+  .btn-ai { background: rgba(255,255,255,0.08); color: white; border: 1px solid rgba(255,255,255,0.15); padding: 16px 20px; border-radius: 50px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s; font-size: 13px; }
+  .btn-ai:hover { background: var(--accent-gold); color: var(--german-black); border-color: var(--accent-gold); transform: translateY(-3px); }
+  .btn-ai:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .ai-result-box { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; margin-top: 30px; display: none; font-size: 15px; color: #EAEAEA; line-height: 1.7; }
+  .loader-spinner { border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid var(--accent-gold); border-radius: 50%; width: 18px; height: 18px; animation: spin 1s linear infinite; display: none; }
+
+  /* --- BANNER POR QUÉ ELEGIRNOS --- */
+  .why-banner { background: var(--spain-red-light); border: 2px solid var(--accent-gold); border-radius: 20px; padding: 50px; margin: 40px var(--space-side) 60px; text-align: left; box-shadow: var(--shadow-sm); }
+  .why-banner h3 { font-size: 30px; color: var(--spain-red); margin-bottom: 30px; display: flex; align-items: center; gap: 15px; font-family: 'Outfit', sans-serif; }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 25px; }
+  .why-list li { font-size: 18px; display: flex; gap: 18px; align-items: flex-start; color: var(--text-main); }
+  .why-list li i { color: var(--spain-red); font-size: 24px; margin-top: 3px; }
+
+  /* --- CIERRE & PROFILE --- */
+  .closing-section { padding: 0 var(--space-side) 40px; text-align: center; }
+  .closing-text { font-size: 20px; color: var(--text-main); line-height: 1.6; max-width: 900px; margin: 0 auto; font-weight: 500; }
+
+  .profile-card { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 30px; border: 1px solid var(--border-color); margin: 0 var(--space-side) 80px; }
+  .profile-wsp-btn { background: #25d366; color: white; text-decoration: none; padding: 15px 30px; border-radius: 50px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; font-size: 16px; }
+  .profile-wsp-btn:hover { background: #128C7E; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+
+  /* --- FOOTER --- */
+  .footer { background: var(--german-black); color: white; text-align: center; padding: 50px var(--space-side); font-size: 15px; margin-top: auto; border-top: 4px solid var(--spain-red); }
+
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    :root { --space-side: 20px; }
+    .header { padding: 60px var(--space-side) 80px; background-attachment: scroll; }
+    .header h1 { font-size: 42px; }
+    .profile-card { flex-direction: column; text-align: center; padding: 30px; }
+    .ai-buttons { grid-template-columns: 1fr; }
+    .why-banner { padding: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="logo-section">
+    <div class="wsw-logo-code">WE<br>STUDY<br>WORLD</div>
+    <div style="font-size: 35px;">🇪🇸</div>
+  </div>
+
+  <div class="header">
+    <div class="hero-tag">● Propuesta Premium · Ana Archila</div>
+    <h1>TU CAMINO<br>A <span>ESPAÑA</span>,<br>ANA.</h1>
+    <div class="hero-capsules">
+      <span class="capsule">🇨🇴 Colombia + 🇪🇺 Pasaporte Europeo</span>
+      <span class="capsule">🎓 Máster Universitario (Oficial)</span>
+      <span class="capsule">📍 Madrid · Presencial</span>
+    </div>
+  </div>
+
+  <div class="student-card fade-in">
+    <h2><i class="fa-solid fa-id-card"></i> Perfil de la Estudiante</h2>
+    <div class="student-grid">
+      <div class="student-item"><span class="label">Nombre</span><br><span class="value">Ana Archila</span></div>
+      <div class="student-item"><span class="label">Nacionalidad</span><br><span class="value">Colombiana (Doble UE)</span></div>
+      <div class="student-item"><span class="label">Área</span><br><span class="value">Project Management</span></div>
+      <div class="student-item"><span class="label">Ventaja</span><br><span class="value">Libre Movilidad UE</span></div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Opciones Académicas Recomendadas</h2>
+  <div class="higher-ed-grid">
+    <div class="he-card fade-in">
+      <div class="he-badge">🏆 TOP RECOMENDADO</div>
+      <h3 class="he-title">Máster Universitario en Dirección de Proyectos</h3>
+      <div class="he-college">Universidad Europea</div>
+      <div class="he-tags"><span class="he-tag">Título Oficial</span><span class="he-tag">9 meses</span></div>
+      <div class="he-finance"><div style="display:flex; justify-content:space-between; font-weight:900;"><span>Inversión Total</span><strong style="color:var(--spain-red); font-size:18px;">12.500 €</strong></div></div>
+      <p class="he-desc">Es un título oficial con enfoque 100% práctico y altísima empleabilidad al estar en el corazón corporativo de Alcobendas.</p>
+      <a href="https://universidadeuropea.com/master-project-management-madrid/" class="he-btn" target="_blank">Ver Programa →</a>
+    </div>
+
+    <div class="he-card fade-in">
+      <h3 class="he-title">Máster Universitario en Dirección de Proyectos</h3>
+      <div class="he-college">UNIE Universidad</div>
+      <div class="he-tags"><span class="he-tag">Título Oficial</span><span class="he-tag">12 meses</span></div>
+      <div class="he-finance"><div style="display:flex; justify-content:space-between; font-weight:900;"><span>Inversión Total</span><strong style="color:var(--spain-red); font-size:18px;">9.500 €</strong></div></div>
+      <p class="he-desc">Excelente relación costo-beneficio para un título oficial, en el vibrante y céntrico barrio de Chamberí.</p>
+      <a href="https://www.universidadunie.com/en/programmes/master-project-management" class="he-btn" target="_blank">Ver Programa →</a>
+    </div>
+
+    <div class="he-card fade-in">
+      <h3 class="he-title">Master in Project Management</h3>
+      <div class="he-college">EAE Business School</div>
+      <div class="he-tags"><span class="he-tag">Networking Top</span><span class="he-tag">10 meses</span></div>
+      <div class="he-finance"><div style="display:flex; justify-content:space-between; font-weight:900;"><span>Inversión Total</span><strong style="color:var(--spain-red); font-size:18px;">16.500 €</strong></div></div>
+      <p class="he-desc">Ideal para potenciar habilidades directivas y acceder a una red de contactos ejecutivos de primer nivel en Madrid.</p>
+      <a href="https://www.eaemadrid.com/en/program/master-project-management-english" class="he-btn" target="_blank">Ver Programa →</a>
+    </div>
+  </div>
+
+  <div class="journey-section">
+    <h2 class="section-title" style="padding:0">Tu Journey hacia España</h2>
+    <div class="journey-grid">
+      <div class="journey-card fade-in">
+        <div class="journey-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>Fase 1: Admisión</h3>
+        <ul class="journey-list">
+          <li><i class="fa-solid fa-check"></i> <span>Aseguras tu plaza en la Universidad elegida.</span></li>
+          <li><i class="fa-solid fa-check"></i> <span>Revisión y apostilla de documentos académicos.</span></li>
+          <li><i class="fa-solid fa-check"></i> <span>Recibes tu carta de admisión oficial.</span></li>
+        </ul>
+      </div>
+      <div class="journey-card fade-in">
+        <div class="journey-icon"><i class="fa-solid fa-passport"></i></div>
+        <h3>Fase 2: Registro UE</h3>
+        <ul class="journey-list">
+          <li><i class="fa-solid fa-check"></i> <span>Viajas directo con tu pasaporte europeo.</span></li>
+          <li><i class="fa-solid fa-check"></i> <span>Trámite del CUE en extranjería al llegar.</span></li>
+          <li><i class="fa-solid fa-check"></i> <span>Empadronamiento en el ayuntamiento.</span></li>
+        </ul>
+      </div>
+      <div class="journey-card fade-in">
+        <div class="journey-icon"><i class="fa-solid fa-plane-departure"></i></div>
+        <h3>Fase 3: Aterrizaje</h3>
+        <ul class="journey-list">
+          <li><i class="fa-solid fa-check"></i> <span>Instalación y búsqueda de piso en Madrid.</span></li>
+          <li><i class="fa-solid fa-check"></i> <span>Inicio de tus clases presenciales.</span></li>
+          <li><i class="fa-solid fa-check"></i> <span>Acompañamiento continuo de We Study World.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Ubicación de los Campus</h2>
+  <div class="campus-grid">
+    <div class="campus-card fade-in">
+      <div class="map-wrapper"><iframe src="https://maps.google.com/maps?q=Universidad+Europea+Campus+Alcobendas&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe></div>
+      <div class="campus-info">
+        <span class="campus-tag">📍 Alcobendas (Business Hub)</span>
+        <h3>Universidad Europea</h3>
+        <ul class="campus-list">
+          <li><i class="fa-solid fa-briefcase"></i> <span>Rodeada de sedes de multinacionales.</span></li>
+          <li><i class="fa-solid fa-leaf"></i> <span>Zona residencial segura y moderna.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="campus-card fade-in">
+      <div class="map-wrapper"><iframe src="https://maps.google.com/maps?q=UNIE+Universidad+Campus+Arapiles+Madrid&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe></div>
+      <div class="campus-info">
+        <span class="campus-tag">📍 Chamberí (Zona Central)</span>
+        <h3>UNIE Universidad</h3>
+        <ul class="campus-list">
+          <li><i class="fa-solid fa-mug-hot"></i> <span>Barrio con mucha vida cultural y ocio.</span></li>
+          <li><i class="fa-solid fa-train-subway"></i> <span>Excelente conexión de metro (L1, L2, L4).</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="campus-card fade-in">
+      <div class="map-wrapper"><iframe src="https://maps.google.com/maps?q=EAE+Business+School+Madrid&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe></div>
+      <div class="campus-info">
+        <span class="campus-tag">📍 Chamartín (Eje Ejecutivo)</span>
+        <h3>EAE Business School</h3>
+        <ul class="campus-list">
+          <li><i class="fa-solid fa-handshake"></i> <span>Cerca de la zona financiera AZCA.</span></li>
+          <li><i class="fa-solid fa-futbol"></i> <span>A pasos del Estadio Santiago Bernabéu.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="hack-box fade-in">
+    <div class="hack-icon"><i class="fa-solid fa-lightbulb"></i></div>
+    <div class="hack-content">
+      <h3>Hack We Study World: El "Abono Joven"</h3>
+      <p>Ana, al tener 25 años, puedes solicitar el Abono Joven. Por solo <strong>20€ al mes</strong> viajas ilimitada por toda la Comunidad de Madrid. ¡Ahorras más de 50€ al mes en transporte!</p>
+    </div>
+  </div>
+
+  <div class="migratory-section fade-in">
+    <h2 class="section-title" style="padding:0">⚖️ Ventaja Competitiva: Estatus UE</h2>
+    <div class="solvency-box">
+      <span>Solvencia Estimada (CUE)</span>
+      <strong>~7.200 €</strong>
+      <p style="font-size: 14px; color: var(--text-muted); margin-top:15px; line-height: 1.5; text-align: left;">Para tu registro legal en España (CUE), Extranjería requiere demostrar el 100% del IPREM anual. Además, es obligatorio contar con un <b style="color: var(--german-black);">seguro médico privado sin copagos</b> con cobertura total en territorio español.</p>
+    </div>
+  </div>
+
+  <!-- SECCIÓN TU PROCESO CON DEGRADADO ANIMADO -->
+  <div class="animated-gradient-section">
+    <div class="gradient-overlay"></div>
+    <div class="parallax-content fade-in">
+      <h2>TU PROCESO CON<br><span>WE STUDY WORLD</span></h2>
+      <p>Te acompañamos paso a paso para que tu experiencia internacional sea clara, segura y sin complicaciones.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">🚀 Próximos Pasos</h2>
+  <div class="checklist-container fade-in">
+    <div class="checklist-item"><input type="checkbox"> <label>Definir Máster (Recomendado: Universidad Europea).</label></div>
+    <div class="checklist-item"><input type="checkbox"> <label>Pago de reserva de plaza para asegurar tu cupo.</label></div>
+    <div class="checklist-item"><input type="checkbox"> <label>Apostilla de documentos académicos en Colombia.</label></div>
+    <div class="checklist-item"><input type="checkbox"> <label>Búsqueda de alojamiento temporal para tu llegada.</label></div>
+  </div>
+
+  <!-- AI TOOLKIT SECTION -->
+  <div class="ai-section fade-in">
+    <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Asistente de IA We Study World</h3>
+    <p style="color: #ccc; font-size: 15px; margin-bottom: 20px;">Ana, aprovecha nuestra Inteligencia Artificial impulsada por Gemini para facilitar tu proceso. Selecciona una opción para generar contenido personalizado:</p>
+    
+    <div class="ai-buttons">
+      <button class="btn-ai" id="btn-landing" onclick="runAIAssistant('landing')">
+         <i class="fa-solid fa-plane-arrival"></i> Guía de Aterrizaje
+         <div class="loader-spinner" id="loader-landing"></div>
+      </button>
+      <button class="btn-ai" id="btn-motivation" onclick="runAIAssistant('motivation')">
+         <i class="fa-solid fa-pen-nib"></i> Carta de Motivación
+         <div class="loader-spinner" id="loader-motivation"></div>
+      </button>
+      <button class="btn-ai" id="btn-budget" onclick="runAIAssistant('budget')">
+         <i class="fa-solid fa-calculator"></i> Plan de Gastos en Madrid
+         <div class="loader-spinner" id="loader-budget"></div>
+      </button>
+      <button class="btn-ai" id="btn-networking" onclick="runAIAssistant('network')">
+         <i class="fa-solid fa-users-viewfinder"></i> Networking PM Madrid
+         <div class="loader-spinner" id="loader-network"></div>
+      </button>
+    </div>
+
+    <div id="ai-result" class="ai-result-box"></div>
+  </div>
+
+  <div class="why-banner fade-in">
+    <h3>🏆 Por Qué Elegirnos</h3>
+    <ul class="why-list">
+      <li><i class="fa-solid fa-handshake"></i> <span><strong>Acompañamiento 100% Gratuito:</strong> Nuestro servicio no tiene ningún costo adicional para ti.</span></li>
+      <li><i class="fa-solid fa-tags"></i> <span><strong>Mismo precio o mejor:</strong> Garantizamos costos oficiales e incluso promociones exclusivas.</span></li>
+      <li><i class="fa-solid fa-certificate"></i> <span><strong>Representantes Oficiales:</strong> Somos el canal directo y certificado de las universidades.</span></li>
+    </ul>
+  </div>
+
+  <div class="closing-section fade-in">
+    <p class="closing-text">Espero que estas opciones premium sean el punto de partida ideal para tu especialización en España. ¡Hagamos que tu llegada a Madrid sea un éxito total!</p>
+  </div>
+
+  <div class="profile-card fade-in">
+    <div style="flex-grow: 1;">
+      <div style="font-size: 24px; font-weight: 900; color: var(--german-black); font-family: 'Outfit', sans-serif;">Michael Guzman</div>
+      <div style="color: var(--text-muted); font-size: 16px;">Sales Manager</div>
+      <div style="color: var(--spain-red); font-weight: 700; margin-top: 4px;">We Study World · Agencia de Estudios</div>
+    </div>
+    <a href="https://wa.me/573150744990" class="profile-wsp-btn">
+      <i class="fa-brands fa-whatsapp"></i> Escríbeme ahora
+    </a>
+  </div>
+
+  <div class="footer">
+    <strong>Con We no hay fronteras. 🌎</strong><br>
+    <span style="color: #AAAAAA; margin-top:12px; display:block;">We Study World · Agencia de Estudios · westudyworld.com</span>
+    <span style="color: #EAEAEA; margin-top:10px; display:block; font-weight: 500;">Hecho con ❤️ para nuestros estudiantes</span>
+  </div>
+
+</div>
+
+<a href="https://wa.me/573150744990" class="float-wsp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+    const apiKey = ""; 
+
+    async function runAIAssistant(type) {
+      const resultBox = document.getElementById('ai-result');
+      const buttons = ['landing', 'motivation', 'budget', 'network'];
+      
+      resultBox.style.display = 'none';
+      buttons.forEach(b => {
+        document.getElementById(`loader-${b}`).style.display = 'none';
+        document.getElementById(`btn-${b}`).disabled = true;
+      });
+      document.getElementById(`loader-${type}`).style.display = 'block';
+
+      let prompt = "";
+      if (type === 'landing') prompt = "Genera una guía rápida de aterrizaje en Madrid para Ana Archila (25 años, pasaporte UE, Máster Project Management). CUE, Empadronamiento, Abono Joven. HTML directo.";
+      else if (type === 'motivation') prompt = "Borrador persuasivo de Carta de Motivación para Ana Archila para un Máster Universitario en Dirección de Proyectos. Enfoque profesional. HTML directo.";
+      else if (type === 'budget') prompt = "Estimación gastos Madrid 2026. Alquiler, comida, Abono Joven. HTML directo.";
+      else if (type === 'network') prompt = "Eventos networking Madrid para Project Management. LinkedIn, PMP Chapter. HTML directo.";
+
+      try {
+        const response = await callGeminiAPI(prompt);
+        resultBox.innerHTML = response.replace(/```html/g, '').replace(/```/g, '').trim();
+        resultBox.style.display = 'block';
+      } catch (error) {
+        resultBox.innerHTML = `<p style="color: #ff6b6b;">Error de conexión. Intenta de nuevo.</p>`;
+        resultBox.style.display = 'block';
+      } finally {
+        buttons.forEach(b => {
+          document.getElementById(`loader-${b}`).style.display = 'none';
+          document.getElementById(`btn-${b}`).disabled = false;
+        });
+      }
+    }
+
+    async function callGeminiAPI(prompt) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+        const payload = {
+            contents: [{ parts: [{ text: prompt }] }],
+            systemInstruction: { parts: [{ text: "Eres un asesor experto de We Study World. Responde en español con HTML semántico directo (<h4>, <p>, <ul>, <li>). No uses markdown." }] }
+        };
+        const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        if (!res.ok) throw new Error('API Error');
+        const data = await res.json();
+        return data.candidates[0].content.parts[0].text;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        faders.forEach(f => observer.observe(f));
+    });
+</script>
+</body>
+</html>
